@@ -1,11 +1,11 @@
-import fs from "fs";
+import fsPromises from "fs/promises";
 
-fs.writeFileSync("homework.txt", "Homework 02 in Basic Node");
+await fsPromises.writeFile("homework.txt", "Homework 02 in Basic Node");
 
-fs.appendFileSync("homework.txt", "\nFINISHED!");
+await fsPromises.appendFile("homework.txt", "\nFINISHED!");
 
 const homeworkPath = "homework.txt";
 
-const homeworkFileContent = fs.readFileSync(homeworkPath, "utf8");
+const homeworkFileContent = await fsPromises.readFile(homeworkPath, "utf8");
 
 console.log(homeworkFileContent);
