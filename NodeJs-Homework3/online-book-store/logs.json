@@ -1,0 +1,12 @@
+[
+  {
+    "timeOfRequest": "2025-03-27T12:03:17.747Z",
+    "method": "GET",
+    "url": "/books"
+  },
+  {
+    "timeOfRequest": "2025-03-27T12:03:28.655Z",
+    "method": "POST",
+    "url": "/books"
+  }
+]
