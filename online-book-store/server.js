@@ -1,5 +1,6 @@
 import express from "express";
 import fs from "fs";
+import { v4 as uuidv4 } from 'uuid';
 
 const server = express();
 
@@ -47,7 +48,7 @@ const readBooks = () => {
     return JSON.parse(booksData);
   } catch (error) {
     console.error("Error reading books:", error);
-    return [];
+    throw error;
   }
 };
 
@@ -68,24 +69,23 @@ server.post("/books", (request, response) => {
   const books = readBooks();
   const newBook = request.body;
 
-  if (
-    !newBook.id ||
-    !newBook.bookTitle ||
-    !newBook.genre ||
-    !newBook.author ||
-    !newBook.pages
-  ) {
+  if (!newBook.bookTitle || !newBook.genre || !newBook.author || !newBook.pages) {
     return response.status(400).json({ error: "Missing required fields" });
   }
 
-  if (newBook.isAvailable === undefined) {
+  newBook.id = uuidv4(); 
+
+  if (typeof newBook.isAvailable !== 'boolean') {
     newBook.isAvailable = true;
   }
 
   books.push(newBook);
   writeBooks(books);
 
-  response.status(201).json({ message: "Book added successfully", book: newBook });
+  return response.status(201).json({ 
+    message: "Book added successfully", 
+    book: newBook 
+  });
 });
 
 server.listen(PORT, HOST, () => {
