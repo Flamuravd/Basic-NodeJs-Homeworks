@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "2b253993-96ff-48d3-8024-eb6ac1c272f4",
+		"name": "E-Recipe API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42904699"
+	},
+	"item": [
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Create Recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"recipeName\": \"Sarma (stuffed cabbage rolls)\",\n  \"description\": \"Very delicious traditional Macedonian meal.\",\n  \"cookingDuration\": \"4 hours\",\n  \"ingredients\": [\"minced meat\", \"cabbage\", \"salt\", \"pepper\", \"rice\", \"water\"],\n  \"servings\": 4,\n  \"difficulty\": \"HARD\",\n  \"cuisine\": \"Macedonian\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Recipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/recipes/{{recipe_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"servings\": 6,\n  \"difficulty\": \"MEDIUM\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/recipes/{{recipe_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/recipes/{{recipe_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chefs",
+			"item": [
+				{
+					"name": "Create Chef",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Gordon Ramsay\",\n  \"experience\": \"30 years\",\n  \"specialty\": \"British cuisine\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/chefs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chefs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Chefs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/chefs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chefs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Chef",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/chefs/{{chef_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chefs",
+								"{{chef_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "recipe_id",
+			"value": "PASTE_RECIPE_ID_HERE"
+		},
+		{
+			"key": "chef_id",
+			"value": "PASTE_CHEF_ID_HERE"
+		}
+	]
+}
